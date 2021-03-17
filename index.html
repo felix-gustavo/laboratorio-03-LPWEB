@@ -11,19 +11,21 @@
     <h1>Sistema de cadastro de notas de alunos</h1>
     <form onsubmit="studentController.add(event)">
         <label>Nome</label>
-        <input id="name" type="text">
+        <input id="name" type="text" required autofocus>
 
         <label>Primeira nota</label>
-        <input id="firstGrade" type="number" min="0" max="100" required>
+        <input id="firstGrade" type="number" min="0" max="100" required onchange="studentController._checkFinalTest()">
 
         <label>Segunda nota</label>
-        <input id="secondGrade" type="number" min="0" max="100" required>
+        <input id="secondGrade" type="number" min="0" max="100" required onchange="studentController._checkFinalTest()">
         
         <label>Frequência</label>
         <input id="frequency" type="number" min="0" max="100" required>
 
-        <label>Prova Final</label>
-        <input id="finalTest" type="number" min="0" max="100">
+        <div id="finalTest-div" hidden>
+            <label>Prova Final</label>
+            <input id="finalTest" type="number" min="0" max="100">
+        </div>
 
         <button type="submit">Enviar</button>
     </form>
