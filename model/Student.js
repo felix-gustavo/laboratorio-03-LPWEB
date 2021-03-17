@@ -1,68 +1,68 @@
 class Student {
   constructor (name, firstGrade, secondGrade, frequency, finalTest, avg, status) {
-      this.name = name;
-      this.firstGrade = firstGrade;
-      this.secondGrade = secondGrade;
-      this.frequency = frequency;
-      this.finalTest = finalTest;
-      this.avg = avg;
-      this.status = status;
+      this._name = name;
+      this._firstGrade = firstGrade;
+      this._secondGrade = secondGrade;
+      this._frequency = frequency;
+      this._finalTest = finalTest;
+      this._avg = avg;
+      this._status = status;
   }
 
   // name
   get name () {
-    return this.name;
+    return this._name;
   }
   set name (name) {
-    this.name = name;
+    this._name = name;
   }
 
   // firstGrade
   get firstGrade () {
-    return this.firstGrade;
+    return this._firstGrade;
   }
   set firstGrade (firstGrade) {
-    this.firstGrade = firstGrade;
+    this._firstGrade = firstGrade;
   }
 
   // secondGrade
   get secondGrade () {
-    return this.secondGrade;
+    return this._secondGrade;
   }
   set secondGrade (secondGrade) {
-    this.secondGrade = secondGrade;
+    this._secondGrade = secondGrade;
   }
 
   // frequency
   get frequency () {
-    return this.frequency;
+    return this._frequency;
   }
 
   set frequency (frequency) {
-    this.frequency = frequency;
+    this._frequency = frequency;
   }
 
   // finalTest
   get finalTest () {
-    return this.finalTest;
+    return this._finalTest;
   }
   set finalTest (finalTest) {
-    this.finalTest = finalTest;
+    this._finalTest = finalTest;
   }
   
   // avg
   get avg () {
-    return this.avg;
+    return this._avg;
   }
   set avg (avg) {
-    this.avg = avg;
+    this._avg = avg;
   }
 
   // status
   get status () {
-    return this.status;
+    return this._status;
   }
   set status (status) {
-    this.status = status;
+    this._status = status;
   }
 }
