@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'/>
+
+    <title>JavaScript com padrão arquitetural MVC</title>
+</head>
+<body>
+    <h1>Sistema de cadastro de notas de alunos</h1>
+    <form onsubmit="studentController.add(event)">
+        <label>Nome</label>
+        <input id="name" type="text">
+
+        <label>Primeira nota</label>
+        <input id="firstGrade" type="number" min="0" max="100" required>
+
+        <label>Segunda nota</label>
+        <input id="secondGrade" type="number" min="0" max="100" required>
+        
+        <label>Frequência</label>
+        <input id="frequency" type="number" min="0" max="100" required>
+
+        <label>Prova Final</label>
+        <input id="finalTest" type="number" min="0" max="100">
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <div id="js-studentView"></div>
+
+    <script src="/controller/StudentController.js"></script>
+    <script src="/model/Student.js"></script>
+    <script src="/view/StudentView.js"></script>
+
+    <script>
+        let studentController = new StudentController();
+    </script>
+</body>
+</html>
