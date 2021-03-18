@@ -35,7 +35,7 @@ class StudentController {
       this._frequency.value,
       this._finalTest.value,
       avg,
-      this._setStatus(avg, this._finalTest.value)
+      this._setStatus(this._frequency.value, avg, this._finalTest.value)
     );
   }
 
@@ -43,14 +43,13 @@ class StudentController {
     return ( Number(firstGrade) + Number(secondGrade) ) / 2;
   }
 
-  _setStatus (avg, finalTest) {
-    if (avg >= 70) {
+  _setStatus (frequency, avg, finalTest) {
+    if(frequency < 75 | avg < 30)
+      return false;
+    else if(avg >= 70)
       return true;
-    } else if (avg < 30) {
+    else if (this._calcAvg(avg, finalTest) < 50)
       return false;
-    } else if (this._calcAvg(avg, finalTest) < 50) {
-      return false;
-    }
     return true;
   }
 
