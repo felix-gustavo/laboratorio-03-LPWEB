@@ -12,7 +12,8 @@ class StudentController {
 
     this._students = [];
 
-    this.studentView = new StudentView($('#js-studentView'));
+    this._table = $('#js-studentView');
+    this.studentView = new StudentView(this._table);
     this.studentView._update(this._students);
   }
 
@@ -23,6 +24,8 @@ class StudentController {
     this.studentView._update(this._students);
 
     this._clean();
+    this._table.hidden = false;
+    this._finalTestDiv.hidden = true;
   }
 
   _createStudent () {
@@ -64,10 +67,10 @@ class StudentController {
   }
 
   _checkFinalTest () {
-    if (this._firstGrade.value.length > 0 & this._secondGrade.value.length > 0) {
+    if (this._firstGrade.value.length & this._secondGrade.value.length & this._frequency.value.length) {
       let avg = this._calcAvg(this._firstGrade.value, this._secondGrade.value);
       
-      this._finalTestDiv.hidden = (avg >= 30 & avg < 70) ? false : true;
+      this._finalTestDiv.hidden = (avg >= 30 & avg < 70 & this._frequency.value > 75) ? false : true;
     }
   }
 }

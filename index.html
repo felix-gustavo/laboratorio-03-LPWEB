@@ -1,43 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' type='text/css' media='screen' href='style.css'/>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>JavaScript com padrão arquitetural MVC</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+		crossorigin="anonymous"></script>
+
+	<link rel='stylesheet' type='text/css' media='screen' href='style.css' />
+
+	<title>JavaScript com padrão arquitetural MVC</title>
 </head>
+
 <body>
-    <h1>Sistema de cadastro de notas de alunos</h1>
-    <form onsubmit="studentController.add(event)">
-        <label>Nome</label>
-        <input id="name" type="text" required autofocus>
+	<div class="d-flex flex-column content text-center">
+		<h1>Sistema de cadastro de notas de alunos</h1>
+		<form class="d-flex flex-row align-items-end justify-content-evenly text-start" onsubmit="studentController.add(event)">
+			<div class="">
+				<label>Nome</label>
+				<input class="form-control input-name" id="name" type="text" required autofocus>
+			</div>
 
-        <label>Primeira nota</label>
-        <input id="firstGrade" type="number" min="0" max="100" required onchange="studentController._checkFinalTest()">
+			<div>
+				<label>Primeira nota</label>
+				<input class="form-control" id="firstGrade" type="number" min="0" max="100" required
+					onchange="studentController._checkFinalTest()">
+			</div>
 
-        <label>Segunda nota</label>
-        <input id="secondGrade" type="number" min="0" max="100" required onchange="studentController._checkFinalTest()">
-        
-        <label>Frequência</label>
-        <input id="frequency" type="number" min="0" max="100" required>
+			<div>
+				<label>Segunda nota</label>
+				<input class="form-control" id="secondGrade" type="number" min="0" max="100" required
+					onchange="studentController._checkFinalTest()">
+			</div>
 
-        <div id="finalTest-div" hidden>
-            <label>Prova Final</label>
-            <input id="finalTest" type="number" min="0" max="100">
-        </div>
+			<div>
+				<label>Frequência</label>
+				<input class="form-control" id="frequency" type="number" min="0" max="100" required
+					onchange="studentController._checkFinalTest()">
+			</div>
 
-        <button type="submit">Enviar</button>
-    </form>
+			<div id="finalTest-div" hidden>
+				<label>Prova Final</label>
+				<input class="form-control" id="finalTest" type="number" min="0" max="100">
+			</div>
 
-    <div id="js-studentView"></div>
+			<div>
+				<button class="btn btn-primary active" type="submit">Enviar</button>
+			</div>
+		</form>
 
-    <script src="/controller/StudentController.js"></script>
-    <script src="/model/Student.js"></script>
-    <script src="/view/StudentView.js"></script>
+		<div id="js-studentView" hidden></div>
+	</div>
+	<script src="/controller/StudentController.js"></script>
+	<script src="/model/Student.js"></script>
+	<script src="/view/StudentView.js"></script>
 
-    <script>
-        let studentController = new StudentController();
-    </script>
+	<script>
+		let studentController = new StudentController();
+	</script>
 </body>
+
 </html>
