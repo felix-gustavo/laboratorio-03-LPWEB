@@ -26,6 +26,7 @@ class StudentController {
     this._clean();
     this._table.hidden = false;
     this._finalTestDiv.hidden = true;
+    this._finalTest.value = '';
   }
 
   _createStudent () {
@@ -70,7 +71,12 @@ class StudentController {
     if (this._firstGrade.value != '' & this._secondGrade.value != '' & this._frequency.value != '') {
       let avg = this._calcAvg(this._firstGrade.value, this._secondGrade.value);
       
-      this._finalTestDiv.hidden = (avg >= 30 & avg < 70 & this._frequency.value > 75) ? false : true;
+      if(avg >= 30 & avg < 70 & this._frequency.value > 75)
+        this._finalTestDiv.hidden = false;
+      else {
+        this._finalTest.value = '';
+        this._finalTestDiv.hidden = true;
+      }
     }
   }
 }
