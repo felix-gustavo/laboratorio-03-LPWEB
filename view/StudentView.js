@@ -12,7 +12,7 @@ class StudentView {
 					<th>Nome</th>
 					<th>1ª nota</th>
 					<th>2ª nota</th>
-					<th>Frequência</th>
+					<th>Frequência (%)</th>
 					<th>Prova final</th>
 					<th>Média final</th>
 					<th>Situação</th>
@@ -35,29 +35,33 @@ class StudentView {
 
 			<tfoot>
 				<tr>
-					<th>Aprovados</th>
+					<td></td>
+					<td></td>
 					<td>
+						<strong>Aprovados: </strong>
 						${
 							students.filter(student => student.status)
 											.reduce(total => total + 1, 0)
 						}
 					</td>
 
-					<th>Reprovados</th>
 					<td>
+					<strong>Reprovados: </strong>
 						${
 							students.filter(student => !student.status)
 											.reduce(total => total + 1, 0)
 						}
 					</td>
 
-					<th>Média da Turma</th>
 					<td>
+						<strong>Média da Turma: </strong>
 						${
 							(students.reduce((total, student) => 
 								total + student.avg, 0)) / students.length | 0
 						}
 					</td>
+					<td></td>
+					<td></td>
 				</tr>
 			</tfoot>
 		</table>
