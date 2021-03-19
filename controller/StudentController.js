@@ -67,7 +67,7 @@ class StudentController {
   }
 
   _checkFinalTest () {
-    if (this._firstGrade.value.length & this._secondGrade.value.length & this._frequency.value.length) {
+    if (this._firstGrade.value != '' & this._secondGrade.value != '' & this._frequency.value != '') {
       let avg = this._calcAvg(this._firstGrade.value, this._secondGrade.value);
       
       this._finalTestDiv.hidden = (avg >= 30 & avg < 70 & this._frequency.value > 75) ? false : true;
